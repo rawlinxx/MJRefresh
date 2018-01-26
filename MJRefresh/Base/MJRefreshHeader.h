@@ -22,4 +22,10 @@
 
 /** 忽略多少scrollView的contentInset的top */
 @property (assign, nonatomic) CGFloat ignoredScrollViewContentInsetTop;
+
+#pragma mark - Creams custom
+/** flag to indicate if refresh action is from user dragging */
+@property (assign, nonatomic) BOOL isByUserPulling;
+- (void)executeRefreshingCallbackByUserPulling;
+
 @end

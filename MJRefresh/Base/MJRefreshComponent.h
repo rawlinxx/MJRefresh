@@ -100,11 +100,6 @@ typedef void (^MJRefreshComponentEndRefreshingCompletionBlock)(void);
 /** 根据拖拽比例自动切换透明度 */
 @property (assign, nonatomic, getter=isAutomaticallyChangeAlpha) BOOL automaticallyChangeAlpha;
 
-#pragma mark - Creams custom
-/** flag to indicate if refresh action is from user dragging */
-@property (assign, nonatomic) BOOL isByUserPulling;
-- (void)executeRefreshingCallbackByUserPulling;
-
 @end
 
 
