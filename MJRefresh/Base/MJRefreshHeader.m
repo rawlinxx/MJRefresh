@@ -93,7 +93,9 @@
         }
     } else if (self.state == MJRefreshStatePulling) {// 即将刷新 && 手松开
         // 开始刷新
+        self.isByUserPulling = true;
         [self beginRefreshing];
+        
     } else if (pullingPercent < 1) {
         self.pullingPercent = pullingPercent;
     }
@@ -135,7 +137,12 @@
                 offset.y = -top;
                 [self.scrollView setContentOffset:offset animated:NO];
             } completion:^(BOOL finished) {
-                [self executeRefreshingCallback];
+                if (self.isByUserPulling) {
+                    [self executeRefreshingCallbackByUserPulling];
+                    self.isByUserPulling = false;
+                } else {
+                    [self executeRefreshingCallback];
+                }
             }];
          });
     }

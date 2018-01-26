@@ -240,6 +240,14 @@
         }
     });
 }
+
+#pragma mark - Creams custom
+/** flag to indicate if refresh action is from user dragging */
+- (void)executeRefreshingCallbackByUserPulling
+{
+    [self executeRefreshingCallback];
+}
+
 @end
 
 @implementation UILabel(MJRefresh)

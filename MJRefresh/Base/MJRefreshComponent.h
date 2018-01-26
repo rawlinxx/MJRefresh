@@ -14,6 +14,7 @@
 #import "UIScrollView+MJRefresh.h"
 #import "NSBundle+MJRefresh.h"
 
+
 /** 刷新控件的状态 */
 typedef NS_ENUM(NSInteger, MJRefreshState) {
     /** 普通闲置状态 */
@@ -91,7 +92,6 @@ typedef void (^MJRefreshComponentEndRefreshingCompletionBlock)(void);
 /** 当scrollView的拖拽状态发生改变的时候调用 */
 - (void)scrollViewPanStateDidChange:(NSDictionary *)change NS_REQUIRES_SUPER;
 
-
 #pragma mark - 其他
 /** 拉拽的百分比(交给子类重写) */
 @property (assign, nonatomic) CGFloat pullingPercent;
@@ -99,7 +99,14 @@ typedef void (^MJRefreshComponentEndRefreshingCompletionBlock)(void);
 @property (assign, nonatomic, getter=isAutoChangeAlpha) BOOL autoChangeAlpha MJRefreshDeprecated("请使用automaticallyChangeAlpha属性");
 /** 根据拖拽比例自动切换透明度 */
 @property (assign, nonatomic, getter=isAutomaticallyChangeAlpha) BOOL automaticallyChangeAlpha;
+
+#pragma mark - Creams custom
+/** flag to indicate if refresh action is from user dragging */
+@property (assign, nonatomic) Bool isByUserPulling;
+- (void)executeRefreshingCallbackByUserPulling;
+
 @end
+
 
 @interface UILabel(MJRefresh)
 + (instancetype)mj_label;
