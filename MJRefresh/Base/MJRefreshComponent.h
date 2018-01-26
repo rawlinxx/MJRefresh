@@ -102,7 +102,7 @@ typedef void (^MJRefreshComponentEndRefreshingCompletionBlock)(void);
 
 #pragma mark - Creams custom
 /** flag to indicate if refresh action is from user dragging */
-@property (assign, nonatomic) Bool isByUserPulling;
+@property (assign, nonatomic) BOOL isByUserPulling;
 - (void)executeRefreshingCallbackByUserPulling;
 
 @end
